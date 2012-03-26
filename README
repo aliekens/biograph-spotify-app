@@ -5,3 +5,5 @@ For now, this is quite rough. Provided with a playing song, our recommendation b
 Lots more work on this hack is required, but at least you can already play with it if you want.
 
 You can use this app by installing this app as ~/Spotify/biograph-spotify-app and then access it from within Spotify by typing "spotify:app:biograph-spotify-app" in the search field.
+
+Note that you need developer access with Spotify to be able to run this app. You can request access at http://developer.spotify.com/en/spotify-apps-api/developer-signup/
