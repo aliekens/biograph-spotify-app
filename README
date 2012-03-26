@@ -1,6 +1,6 @@
 This is our entry for the Amsterdam Music Hackday, held 24&25 March 2012.
 
-For now, this is quite rough. Provided with a playing song, our recommendation backend at http://music.biograph.be is called to generate a playlist of recommended artists' songs. When playing a song from this playlist, we display an explanation on why this artist is recommended for the original artist.
+For now, this is quite rough. Provided with a playing song, our recommendation backend at http://music.biograph.be is called to generate a playlist of recommended artists' songs. The backend recommendation engine is a graph miner based on last.fm artists&tags (we also have a version based on tracks, but this is not in production as of yet). When playing a song from the recommendations' playlist, we display specifically relevant explanations for this recommendation, which is quite novel.
 
 Lots more work on this hack is required, but at least you can already play with it if you want.
 
