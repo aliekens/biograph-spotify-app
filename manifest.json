@@ -1,0 +1,15 @@
+{
+        "BundleType": "Application",
+        "AppIcon": {
+                "18x18": "icon.png"
+        },
+        "AppName": {
+                "en": "BioGraph"
+        },
+        "SupportedLanguages": [
+                "en"
+        ],
+        "RequiredPermissions": [
+                "http://*.biograph.be", "http://0.0.0.0:3001", "http://ws.spotify.com"
+        ]
+}
