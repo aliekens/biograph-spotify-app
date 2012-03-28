@@ -29,14 +29,16 @@ function makePlaylistFromNowPlaying() {
 	if (playerTrackInfo == null) {
 		info("Start playing something and I'll make a playlist of good songs based on that song");
 	} else {
+		info("");
 		var track = playerTrackInfo.track;
 		var artist = track.artists[0].name;
 		sourceartist = artist;
-		fetchPlaylist(artist, 25);
+		fetchPlaylist( artist, 25 );
+		var playlistView = new views.List( tempPlaylist );
+		$('#player').html( playlistView.node );
+		$('#player-info').html( "Playlist based on " + artist );
 	}
 
-	var playlist = new views.List(tempPlaylist);
-	$('#player').html(playlist.node);
 }
 
 function rand(max) {
@@ -54,10 +56,6 @@ function xinspect(o,i){
     return r.join(i+'\n');
 }
 
-function playTrack(href) {
-	models.player.play(href);
-}
-
 function suggestTrack(artist) {
 	var url = 'http://ws.spotify.com/search/1/track.json';
 	return $.getJSON(
@@ -72,9 +70,7 @@ function suggestTrack(artist) {
 			} while( ( trackdata.artists[0].name.toLowerCase() != artist.toLowerCase() ) && ( counter < 10 ) );
 			if( trackdata.artists[0].name.toLowerCase() == artist.toLowerCase() ) {
 				var track = new models.Track.fromURI( trackdata.href );
-//				if( track.playable ) {
-					tempPlaylist.add(track);
-//				}
+				tempPlaylist.add(track);
 			}
 		}
 	);

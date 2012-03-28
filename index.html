@@ -10,21 +10,22 @@
             @import url('sp://import/css/eve.css');
             @import url('sp://import/css/list.css');
             @import url('sp://import/css/player.css');
-            @import url('sp://spotify-apps-tutorial/css/main.css');
+            @import url('sp://biograph-spotify-app/css/biograph.css');
+            h1, ul {margin:0 0 30px;}
+            a:hover {color:#83be20;}
         </style>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/biograph.js"></script>
 </head>
-
+<title>Biograph spotify recommender></title>
 <body>
-	<h2 id='title'> Here's a cool playlist based upon what is now playing!</h2>
-	<div id="info"></div>
-	<button id="new" onclick="makePlaylistFromNowPlaying()"> Generate Playlist </button>
-	<div id='all-results'>
-		<ul id="results"> </ul>
-	</div>
-	<div id="graph"></div>
-	<div id="player">
+	<div id="wrapper">
+		<div id="info"></div>
+		<button id="new" onclick="makePlaylistFromNowPlaying()" style="float:right;"> Generate Playlist </button>
+		<h1>BioGraph recommender</h1>
+		<center><div id="graph"></div></center>
+		<h2 id="player-info"></h2>
+		<div id="player"></div>
 	</div>
 </body>
 
