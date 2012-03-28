@@ -47,13 +47,15 @@ jQuery.ajaxSettings.traditional = true;
 
 var sourceartist = "";
 
-function clearPlaylist() {
-	
+function clearPlaylist( playlist ) {
+	while( playlist.data.length > 0 ) {
+		playlist.data.remove( 0 );
+	}
 }
 
 function makePlaylistFromNowPlaying() {
 	var playerTrackInfo = sp.trackPlayer.getNowPlayingTrack();
-	clearPlaylist();
+	clearPlaylist( tempPlaylist );
 	$('#player').html('<img src="jackhammerf5.gif"/>');
 	if (playerTrackInfo == null) {
 		info("Start playing something and I'll make a playlist of good songs based on that song");
@@ -110,7 +112,6 @@ function suggestTrack(artist) {
 }
 
 function fetchPlaylist(artist, size) {
-	info('Getting playlist for ' + artist);
 	var url = 'http://music.biograph.be/miner/artist_json?callback=?';
 	var artists = [];
 	$.getJSON(
