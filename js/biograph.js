@@ -2,19 +2,22 @@ var sp = getSpotifyApi(1);
 var models = sp.require('sp://import/scripts/api/models');
 var views = sp.require("sp://import/scripts/api/views");
 
+var sourceartist = "";
+var previoustargetartist = "";
+
 models.player.observe(models.EVENT.CHANGE, function(event) {
 	var playerTrackInfo = sp.trackPlayer.getNowPlayingTrack();
-//	alert( JSON.stringify( playerTrackInfo.track.artists[] ) );
 	var artist = playerTrackInfo.track.artists[0].name;
-	$('#graph').html('<img src="jackhammerf5.gif"/>');
-	$.ajax( 'http://music.biograph.be/miner/graph_spotify?source_id=' + sourceartist + '&target_id=' + artist );
+	if( previoustargetartist != artist ) {
+		$('#graph').html('<img src="jackhammerf5.gif"/>');
+		$.ajax( 'http://music.biograph.be/miner/graph_spotify?source_id=' + sourceartist + '&target_id=' + artist );
+	}
+	previoustargetartist = artist;
 });
 
 // create a temporary playlist
 var tempPlaylist = new models.Playlist();
 jQuery.ajaxSettings.traditional = true;  
-
-var sourceartist = "";
 
 function clearPlaylist( playlist ) {
 	while( playlist.data.length > 0 ) {
